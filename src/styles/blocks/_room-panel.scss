@@ -19,8 +19,9 @@
   }
 
   .card {
-    background-color: get-color("tertiary");
-    border: 1px solid get-color("tertiary-border");
+    background-color: get-color("secondary");
+
+    border: 1px solid get-color("secondary");
     div {
       > .data {
         font-size: get-size("600");

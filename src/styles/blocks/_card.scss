@@ -2,17 +2,18 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   padding: get-size("500");
-
   border-radius: 1rem;
+  text-align: center;
+
   article {
     width: 100%;
   }
   div {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     > .icon {
