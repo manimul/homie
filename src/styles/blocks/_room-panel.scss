@@ -1,0 +1,36 @@
+.room-panel {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-align: left;
+
+  > :last-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  @include media-query("md") {
+    display: grid;
+    grid-template-columns: 33%;
+    grid-gap: 1rem;
+
+    > :last-child {
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+  }
+
+  .card {
+    background-color: get-color("tertiary");
+    border: 1px solid get-color("tertiary-border");
+    div {
+      > .data {
+        font-size: get-size("800");
+        @include apply-utility("weight", "bold");
+        > .unit {
+          font-size: get-size("400");
+          margin-left: get-size("300");
+        }
+      }
+    }
+  }
+}

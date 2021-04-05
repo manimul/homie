@@ -1,0 +1,34 @@
+<div class="dashboard-panel bg-secondary">
+  <h2 class="color-primary text-400 pad-bottom-300">{{ name }}</h2>
+  <div class="room-panel">
+    <app-data-card
+      [title]="'Temperature'"
+      [data]="temperature"
+      [unit]="'°C'"
+      [ngClass]="'card color-primary'"
+    ></app-data-card>
+    <app-data-card
+      [title]="'Humidity'"
+      [data]="humidity"
+      [unit]="'%'"
+      [ngClass]="'card color-primary'"
+    ></app-data-card>
+    <app-data-card
+      [title]="'People'"
+      [data]="people"
+      [ngClass]="'card color-primary'"
+    ></app-data-card>
+    <app-data-card
+      [title]="'Devices'"
+      [data]="devices"
+      [ngClass]="'card color-primary'"
+    ></app-data-card>
+    <app-data-card
+      class="grid-item3"
+      [title]="'Energy'"
+      [unit]="'kw/h'"
+      [data]="energy"
+      [ngClass]="'card color-primary'"
+    ></app-data-card>
+  </div>
+</div>

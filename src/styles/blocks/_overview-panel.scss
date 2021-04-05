@@ -1,0 +1,23 @@
+.overview-panel {
+  width: 100%;
+  margin-bottom: get-size("600");
+  > div {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    grid-gap: 1rem;
+    .card {
+      padding: get-size("300");
+      border: 0px;
+      text-align: center;
+
+      div {
+        > .data {
+          font-size: get-size("600");
+          @include apply-utility("weight", "bold");
+        }
+      }
+    }
+  }
+}

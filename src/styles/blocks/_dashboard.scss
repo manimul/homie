@@ -1,0 +1,28 @@
+.dashboard {
+  display: grid;
+
+  @include media-query("md") {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    grid-gap: 1rem;
+
+    > :first-child {
+      grid-column-start: 1;
+      grid-column-end: 7;
+    }
+    > :last-child {
+      grid-column-start: 2;
+      grid-column-end: 7;
+    }
+  }
+
+  padding: get-size("500");
+
+  .dark > div {
+    background-color: get-color(secondary);
+  }
+  .light > div {
+    background-color: white;
+  }
+}

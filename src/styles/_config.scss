@@ -1,0 +1,104 @@
+/**
+ * BASE SIZE
+ * All calculations are based on this. It’s recommended that
+ * you keep it at 1rem because that is the root font size. You
+ * can set it to whatever you like and whatever unit you like.
+ */
+$gorko-base-size: 1rem;
+
+/**
+  * SIZE SCALE
+  * This is a Major Third scale that powers all the utilities that
+  * it is relevant for (font-size, margin, padding). All items are
+  * calcuated off the base size, so change that and cascade across
+  * your whole project.
+  */
+$gorko-size-scale: (
+  "300": $gorko-base-size * 0.75,
+  "400": $gorko-base-size,
+  "500": $gorko-base-size * 1.33,
+  "600": $gorko-base-size * 1.77,
+  "700": $gorko-base-size * 2.35,
+  "800": $gorko-base-size * 3.13,
+  "900": $gorko-base-size * 4.16,
+);
+
+/**
+  * COLORS
+  * Colors are shared between backgrounds and text by default. 
+  * You can also use them to power borders, fills or shadows, for example.
+  */
+$gorko-colors: (
+  "primary": #273459,
+  "primary-shade": #1c2848,
+  "secondary": #ffdddc,
+  "secondary-shade": #ff5151,
+  "tertiary": #ffe7e6,
+  "tertiary-border": #ffd7d6,
+  "quaternary": #2374ab,
+  "light": #fff9f9,
+  "light-shade": #eeeeee,
+  "grey": #c4c4c4,
+);
+
+/**
+  * CORE CONFIG
+  * This powers everything from utility class generation to breakpoints
+  * to enabling/disabling pre-built components/utilities.
+  */
+$gorko-config: (
+  "bg": (
+    "items": $gorko-colors,
+    "output": "standard",
+    "property": "background",
+  ),
+  "color": (
+    "items": $gorko-colors,
+    "output": "standard",
+    "property": "color",
+  ),
+  "font": (
+    "items": (
+      "base": '"Poppins", Helvetica, Arial, sans-serif',
+      "mono": '"IBM Plex Mono", Courier New, Courier, monospace',
+    ),
+    "output": "standard",
+    "property": "font-family",
+  ),
+  "gap-bottom": (
+    "items": $gorko-size-scale,
+    "output": "standard",
+    "property": "margin-bottom",
+  ),
+  "gap-top": (
+    "items": $gorko-size-scale,
+    "output": "standard",
+    "property": "margin-top",
+  ),
+  "pad-bottom": (
+    "items": $gorko-size-scale,
+    "output": "standard",
+    "property": "padding-bottom",
+  ),
+  "pad-top": (
+    "items": $gorko-size-scale,
+    "output": "standard",
+    "property": "padding-top",
+  ),
+  "text": (
+    "items": $gorko-size-scale,
+    "output": "responsive",
+    "property": "font-size",
+  ),
+  "weight": (
+    "items": (
+      "medium": "500",
+      "bold": "700",
+    ),
+    "output": "standard",
+    "property": "font-weight",
+  ),
+  "breakpoints": (
+    "md": "(min-width: 48em)",
+  ),
+);

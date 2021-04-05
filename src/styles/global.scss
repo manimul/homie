@@ -1,0 +1,87 @@
+// First up: config
+@import "config";
+
+// Next: pull in gorko for design tokens
+@import "../../node_modules/gorko/gorko.scss";
+
+// Pull in modern reset
+@import "reset";
+
+// Pull in Font
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap");
+
+// Utilities
+@import "utilities/flow";
+@import "utilities/radius";
+@import "utilities/splitter";
+@import "utilities/wrapper";
+@import "utilities/visually-hidden";
+@import "utilities/auto-grid";
+
+// Blocks
+@import "blocks/card";
+@import "blocks/site-head";
+@import "blocks/dashboard";
+@import "blocks/dashboard-panel";
+@import "blocks/room-panel";
+@import "blocks/room-list";
+@import "blocks/overview-panel";
+
+// Global CSS starts
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+  background-color: get-color("primary");
+  background: rgb(39, 52, 89);
+  background: -moz-radial-gradient(
+    circle,
+    get-color("primary"),
+    get-color("primary-shade")
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    get-color("primary"),
+    get-color("primary-shade")
+  );
+  background: radial-gradient(
+    circle,
+    get-color("primary"),
+    get-color("primary-shade")
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#273459",endColorstr="#141c34",GradientType=1);
+  padding-bottom: get-size("600");
+  @include apply-utility("weight", "medium");
+  @include apply-utility("font", "base");
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: get-size("700");
+}
+
+h2,
+h3 {
+  font-size: get-size("600");
+}
+
+a {
+  color: currentColor;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+:focus {
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
+}

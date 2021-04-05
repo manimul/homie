@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  padding: get-size("500");
+
+  border-radius: 1rem;
+  article {
+    width: 100%;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    > .icon {
+      font-size: get-size("700");
+      width: get-size("600");
+      margin-right: get-size("300");
+      > svg-icon {
+        font-size: get-size("700");
+        width: get-size("600");
+        margin-right: get-size("300");
+      }
+    }
+  }
+  .title {
+    font-size: get-size("300");
+    opacity: 0.7;
+  }
+  .info-container {
+    flex-direction: row;
+  }
+}
