@@ -1,4 +1,8 @@
 .room-list {
+  text-align: center;
+  @include media-query("md") {
+    text-align: left;
+  }
   padding-top: get-size("600");
   > * {
     list-style: none;
@@ -6,6 +10,12 @@
   ul {
     padding: 0px;
     margin: 0px;
+    display: flex;
+    flex-flow: row;
+    flex-flow: wrap;
+    li {
+      padding-right: get-size("300");
+    }
   }
   a {
     text-decoration: none;

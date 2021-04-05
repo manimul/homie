@@ -1,6 +1,6 @@
 <!-- If a panel is a roomslist panel - show list of rooms and temp data, display in table list, each item can be clicked -->
 <div class="room-list">
-  <h2 class="color-secondary text-400 pad-bottom-300">Rooms</h2>
+  <h2 class="color-secondary pad-bottom-300">Rooms</h2>
   <ul class="">
     <li *ngFor="let room of house">
       <a (click)="discoverClicked(room.id)">

@@ -1,16 +1,22 @@
 .overview-panel {
   width: 100%;
   margin-bottom: get-size("600");
+  text-align: center;
+  @include media-query("md") {
+    text-align: left;
+  }
+
   > div {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-    grid-template-columns: repeat(6, 1fr);
+    @include media-query("md") {
+      grid-template-columns: repeat(6, 1fr);
+    }
 
-    grid-gap: 1rem;
     .card {
       padding: get-size("300");
       border: 0px;
-      text-align: center;
 
       div {
         > .data {

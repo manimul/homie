@@ -1,7 +1,6 @@
 .room-panel {
   display: grid;
   grid-template-columns: 50% 50%;
-  text-align: left;
 
   > :last-child {
     grid-column-start: 1;
@@ -24,11 +23,17 @@
     border: 1px solid get-color("tertiary-border");
     div {
       > .data {
-        font-size: get-size("800");
+        font-size: get-size("600");
+        @include media-query("md") {
+          font-size: get-size("800");
+        }
         @include apply-utility("weight", "bold");
         > .unit {
           font-size: get-size("400");
           margin-left: get-size("300");
+          @include media-query("md") {
+            font-size: get-size("400");
+          }
         }
       }
     }
