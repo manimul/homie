@@ -10,7 +10,5 @@ export class IconComponent implements OnInit {
     this.type = '';
   }
   @Input() type: string;
-  ngOnInit(): void {
-    console.log(this.type);
-  }
+  ngOnInit(): void {}
 }

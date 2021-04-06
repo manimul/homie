@@ -13,7 +13,6 @@ export class AppComponent {
   constructor(public houseDataService: HouseDataService) {
     this.houseDataService.getData().subscribe((data) => {
       // Do whatever you want with your data
-      console.log('this is app' + data);
     });
   }
   ngOnInit() {}

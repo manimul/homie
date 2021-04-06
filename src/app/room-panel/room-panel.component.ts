@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HOUSE } from '../house';
+import { Room } from '../room';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { timer } from 'rxjs';
 import { HouseDataService } from '../house-data.service';
 
 @Component({
@@ -11,65 +13,46 @@ import { HouseDataService } from '../house-data.service';
   styleUrls: ['./room-panel.component.scss'],
 })
 export class RoomPanelComponent implements OnInit {
-  state$: Observable<object>;
-
   house = HOUSE;
-  myRoom: object;
-  unit: string;
+  houseData: Room;
   currentRoom: object;
+  currentId: number;
   roomTitle: string;
-  houseData: number;
   devices: number;
   energy: number;
   humidity: number;
   people: number;
   temperature: number;
-  nextRoom() {
-    console.log(this.houseData);
-  }
 
   @Input() name: string | null;
 
-  constructor(
-    public route: ActivatedRoute,
-    public houseDataService: HouseDataService
-  ) {
-    this.houseData = 1;
-
-    this.myRoom = { energy: 0, people: 0 };
+  constructor(public houseDataService: HouseDataService) {
+    this.houseData = HOUSE[0];
     this.roomTitle = '';
     this.name = '';
-    this.unit = '';
     this.currentRoom = {};
+    this.devices = 0;
+    this.energy = 0;
+    this.humidity = 0;
+    this.people = 0;
+    this.temperature = 0;
+    this.currentId = 0;
 
     this.houseDataService.getData().subscribe((data) => {
-      // Do whatever you want with your data
-      console.log(data);
-      data ? (this.houseData = data) : (this.houseData = 0);
-      console.log(this.house[this.houseData]);
-      this.name = this.house[this.houseData].title;
-      this.devices = this.house[this.houseData].devices;
-      this.energy = this.house[this.houseData].energy;
-      this.humidity = this.house[this.houseData].humidity;
-      this.people = this.house[this.houseData].people;
-      this.temperature = this.house[this.houseData].temperature;
-      return this.houseData;
+      data ? (this.houseData = data) : (this.houseData = this.house[0]);
+      this.name = this.houseData.title;
+      this.devices = this.houseData.devices;
+      this.energy = this.houseData.energy;
+      this.humidity = this.houseData.humidity;
+      this.people = this.houseData.people;
+      this.temperature = this.houseData.temperature;
+      this.currentId = this.houseData.id;
+
+      let source = timer(10000, 20000);
+      let subscribe = source.subscribe((val) =>
+        houseDataService.setData(this.currentId)
+      );
     });
-
-    this.devices = this.house[this.houseData].devices;
-    this.energy = this.house[this.houseData].energy;
-    this.humidity = this.house[this.houseData].humidity;
-    this.people = this.house[this.houseData].people;
-    this.temperature = this.house[this.houseData].temperature;
-    this.state$ = this.route.paramMap.pipe(map(() => window.history.state));
-
-    //console.log(window.history.state);
-    //this.name = window.history.state.title;
-    //this.data = 1;
-    //@Input() initiale: string;
   }
-  ngOnInit(): void {
-    this.houseData = 1;
-    //this.route.paramMap.subscribe((params) => (this.name = params.get('name')));
-  }
+  ngOnInit(): void {}
 }

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataCardComponent } from './data-card/data-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardPanelComponent } from './dashboard-panel/dashboard-panel.component';
 import { HeaderComponent } from './header/header.component';
 import { IconComponent } from './icon/icon.component';
 import { OverviewPanelComponent } from './overview-panel/overview-panel.component';
@@ -25,7 +23,6 @@ import { humidityIcon } from './svg/humidity';
     AppComponent,
     DataCardComponent,
     DashboardComponent,
-    DashboardPanelComponent,
     HeaderComponent,
     IconComponent,
     OverviewPanelComponent,
@@ -36,6 +33,7 @@ import { humidityIcon } from './svg/humidity';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
     SvgIconsModule.forRoot({
       sizes: {
         md: '2rem',
@@ -51,6 +49,7 @@ import { humidityIcon } from './svg/humidity';
       ],
     }),
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

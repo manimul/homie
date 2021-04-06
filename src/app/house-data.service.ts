@@ -10,14 +10,16 @@ export class HouseDataService {
   private _data: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   public setData(data: any) {
-    this._data.next(data);
+    HOUSE[data];
+    this._data.next(HOUSE[data]);
+    // this._data.next(data);
   }
 
   public getData(): Observable<any> {
     return this._data.asObservable();
   }
   constructor() {}
-  getHouse(): Room[] {
-    return HOUSE;
-  }
+  //getHouse(): Room[] {
+  //return HOUSE;
+  //}
 }
